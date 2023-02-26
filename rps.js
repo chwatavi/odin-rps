@@ -25,7 +25,7 @@ function numToChoice(num){
     case 1:
       return "Paper";
       break;
-    case 3:
+    case 2:
       return "Scissors";
       break;
     default:
@@ -49,13 +49,13 @@ function playRound(playerSelection, computerSelection) {
   // Subtract their choices numerically to determine the winner
   let winDeterminator = playerSelectionNum - computerSelectionNum
   switch ((winDeterminator + 3) % 3){
-    case (0):
+    case 0:
       outcome = `It's a draw! We both chose ${computerSelection}.`;
       break;
-    case (1):
+    case 1:
       outcome = `You win! ${numToChoice(playerSelectionNum)} beats ${computerSelection}!`;
       break;
-    case (2):
+    case 2:
       outcome = `You lose! ${computerSelection} beats ${numToChoice(playerSelectionNum)}!`;
       break;
     default:
@@ -64,3 +64,17 @@ function playRound(playerSelection, computerSelection) {
     return outcome;
 }
 
+function game(){
+  // Play 5 rounds of game
+  for (let i = 0; i < 5; i++){
+    let playerSelection = prompt("Please enter Rock, Paper or Scissors.");
+    if (choiceToNum(playerSelection) === null){
+      alert("Invalid Input! Please Rock, Paper or Scissors.");
+      continue;
+    }
+    let computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+  }
+}
+
+game();
