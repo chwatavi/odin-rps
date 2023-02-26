@@ -1,1 +1,1 @@
-# odin-rps
+This is the Rock Paper Scissors project from The Odin Project created as an exercise for writing basic JavaScript.
