@@ -65,7 +65,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(){
-  // Play 5 rounds of game
+  // Play 5 rounds of game, obsolete
   for (let i = 0; i < 5; i++){
     let playerSelection = prompt("Please enter Rock, Paper or Scissors.");
     if (choiceToNum(playerSelection) === null){
@@ -77,4 +77,16 @@ function game(){
   }
 }
 
-game();
+
+const buttons = document.querySelectorAll('button');
+const results = document.querySelector('.results')
+
+buttons.forEach((button) =>{
+  button.addEventListener('click', playGame);
+});
+
+function playGame(e){
+  let result = document.createElement('p');
+  result.textContent = playRound(this.id, getComputerChoice());
+  results.appendChild(result);
+}
