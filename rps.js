@@ -1,6 +1,6 @@
 function getComputerChoice(){
   // Return randomly either Rock, Paper or Scisssors.
-  switch (getRandomInt(3)){
+  switch (Math.floor(Math.random() * 3)){
     case 0:
       return "Rock";
       break;
