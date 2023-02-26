@@ -50,13 +50,13 @@ function playRound(playerSelection, computerSelection) {
   let winDeterminator = playerSelectionNum - computerSelectionNum
   switch ((winDeterminator + 3) % 3){
     case (0):
-      outcome = `It's a draw! We both chose $(computerSelection)`;
+      outcome = `It's a draw! We both chose ${computerSelection}.`;
       break;
     case (1):
-      outcome = `You win! $(numToChoice(playerSelectionNum)) beats $(computerSelectionNum)!`;
+      outcome = `You win! ${numToChoice(playerSelectionNum)} beats ${computerSelection}!`;
       break;
     case (2):
-      outcome = `You Lose! $(computerSelection) beats $(numToChoice(playerSelectionNum))!`;
+      outcome = `You lose! ${computerSelection} beats ${numToChoice(playerSelectionNum)}!`;
       break;
     default:
       outcome = "There is error."
