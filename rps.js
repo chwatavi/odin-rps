@@ -38,3 +38,29 @@ function getComputerChoice(){
   // Use an expression that reandomly generates 0, 1 or 2
   return numToChoice (Math.floor(Math.random() * 3));
 }
+
+function playRound(playerSelection, computerSelection) {
+  // Output the winner declaration
+  
+  let outcome;
+  let playerSelectionNum = choiceToNum(playerSelection);
+  let computerSelectionNum = choiceToNum(computerSelection);
+
+  // Subtract their choices numerically to determine the winner
+  let winDeterminator = playerSelectionNum - computerSelectionNum
+  switch ((winDeterminator + 3) % 3){
+    case (0):
+      outcome = `It's a draw! We both chose $(computerSelection)`;
+      break;
+    case (1):
+      outcome = `You win! $(numToChoice(playerSelectionNum)) beats $(computerSelectionNum)!`;
+      break;
+    case (2):
+      outcome = `You Lose! $(computerSelection) beats $(numToChoice(playerSelectionNum))!`;
+      break;
+    default:
+      outcome = "There is error."
+    }
+    return outcome;
+}
+
